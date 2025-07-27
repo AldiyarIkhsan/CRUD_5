@@ -112,3 +112,21 @@ export const postValidationRulesForBlogIdInParams = [
     .isLength({ max: 1000 })
     .withMessage("Content should be max 1000 characters"),
 ];
+
+export const userValidationRules = [
+  check("login")
+    .trim()
+    .notEmpty()
+    .withMessage("Login is required")
+    .isLength({ min: 3, max: 10 })
+    .withMessage("Login length must be 3-10"),
+
+  check("password")
+    .trim()
+    .notEmpty()
+    .withMessage("Password is required")
+    .isLength({ min: 6, max: 20 })
+    .withMessage("Password length must be 6-20"),
+
+  check("email").trim().notEmpty().withMessage("Email is required").isEmail().withMessage("Invalid email format"),
+];
